@@ -34,3 +34,19 @@ a {
   padding: 0 15px;
   margin: 0 auto;
 }
+
+input {
+  width: 255px !important;
+  height: 38px !important;
+  outline: none;
+  border: none;
+  background: #FAFAFA;
+  border-bottom: 1px $primary solid;
+}
+textarea{
+  outline: none;
+  border: none;
+  background: #FAFAFA;
+  border-bottom: 1px $primary solid;
+  width: 255px;
+}

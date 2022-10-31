@@ -28,6 +28,23 @@ a {
   margin: 0 auto;
 }
 
+input {
+  width: 255px !important;
+  height: 38px !important;
+  outline: none;
+  border: none;
+  background: #FAFAFA;
+  border-bottom: 1px #00807E solid;
+}
+
+textarea {
+  outline: none;
+  border: none;
+  background: #FAFAFA;
+  border-bottom: 1px #00807E solid;
+  width: 255px;
+}
+
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -647,8 +664,8 @@ progress {
 .container-xl,
 .container-xxl {
   width: 100%;
-  padding-right: var(--bs-gutter-x, 0.75rem);
-  padding-left: var(--bs-gutter-x, 0.75rem);
+  padding-right: var(--bs-gutter-x, 0.9375rem);
+  padding-left: var(--bs-gutter-x, 0.9375rem);
   margin-right: auto;
   margin-left: auto;
 }
@@ -684,7 +701,7 @@ progress {
 }
 
 .row {
-  --bs-gutter-x: 1.5rem;
+  --bs-gutter-x: 1.875rem;
   --bs-gutter-y: 0;
   display: flex;
   flex-wrap: wrap;
@@ -5916,7 +5933,7 @@ fieldset:disabled .btn {
 }
 
 .card-group > .card {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.9375rem;
 }
 
 @media (min-width: 576px) {
@@ -6829,7 +6846,7 @@ fieldset:disabled .btn {
 }
 
 .toast-container > :not(:last-child) {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.9375rem;
 }
 
 .toast-header {
@@ -20116,6 +20133,12 @@ fieldset:disabled .btn {
   color: #00cc99;
   font-size: 20px;
   font-weight: 400;
+}
+
+.newTicketSet {
+  box-shadow: 0px 3px 6px #00000029;
+  width: 920px;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=all.css.map */
