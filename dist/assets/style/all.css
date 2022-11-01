@@ -20168,4 +20168,10 @@ fieldset:disabled .btn {
   left: 0px;
 }
 
+select {
+  width: 255px;
+  height: 38px;
+  border-color: #CED4DA;
+}
+
 /*# sourceMappingURL=all.css.map */

@@ -25,32 +25,32 @@ current: index
             <input type="text" id="name" placeholder="請填寫套票名稱">
           </li>
           <li class="mb-4">
-            <label for="pic" class="me-7 text-primary fs-4">圖片網址</label>
+            <label for="pic" class="pic me-7 text-primary fs-4">圖片網址</label>
             <input type="text" id="pic" placeholder="請填寫圖片網址">
           </li>
           <li class="mb-4">
-            <label for="location" class="me-7 text-primary fs-4">景點地區</label>
+            <label for="location" class="location me-7 text-primary fs-4">景點地區</label>
             <input type="text" id="location" placeholder="請選擇景點地區">
           </li>
           <li class="mb-4">
-            <label for="price" class="me-7 text-primary fs-4">套票金額</label>
+            <label for="price" class="price me-7 text-primary fs-4">套票金額</label>
             <input type="text" id="price" placeholder="請填寫套票金額">
           </li>
           <li class="mb-4">
-            <label for="set" class="me-7 text-primary fs-4">套票組數</label>
+            <label for="set" class="set me-7 text-primary fs-4">套票組數</label>
             <input type="text" id="set" placeholder="請填寫套票組數">
           </li>
           <li class="mb-4">
-            <label for="level" class="me-7 text-primary fs-4">套票星級</label>
+            <label for="level" class="level me-7 text-primary fs-4">套票星級</label>
             <input type="text" id="level" placeholder="請填寫套票星級">
           </li>
           <li class="mb-8 d-flex align-items-start">
-            <label for="content" class="me-7 text-primary fs-4">套票描述</label>
+            <label for="content" class="content me-7 text-primary fs-4">套票描述</label>
             <textarea type="text" id="content" rows="5" placeholder="請填寫套票描述(限100個字)">
             </textarea>
           </li>
         </ul>
-        <div class="btn btn-primary px-10 py-2 ms-auto d-block" style="width: 160px;">新增套票</div>
+        <div class="addTicket btn btn-primary px-10 py-2 ms-auto d-block" style="width: 160px;">新增套票</div>
       </div>
     </div>
   </div>
@@ -58,6 +58,15 @@ current: index
 
 <div class="program pt-14 pb-30">
   <div class="container">
+    <div class="search d-flex mb-13 text-secondary">
+      <select class="search-select me-7 ms-24 text-secondary">
+        <option>地區搜尋</option>
+        <option>台北</option>
+        <option>台中</option>
+        <option>高雄</option>
+      </select>
+      <p class="searchNum" style="line-height: 38px;">本次搜尋共 6 筆資料</p>
+    </div>
     <div class="row ticketSetRow">
       <div class="col-4">
         <div class="card shadow-sm position-relative">

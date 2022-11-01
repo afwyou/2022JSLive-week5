@@ -1,9 +1,17 @@
-$(function () {
-  console.log('Hello Bootstrap5');
-});
+
 
 const ticketSetRow = document.querySelector('.ticketSetRow')
-
+const searchSselect = document.querySelector('.search-select')
+const searchNum = document.querySelector('.searchNum')
+const addTicket = document.querySelector('.addTicket')
+const ticketName = document.querySelector('#name')
+const pic = document.querySelector('#pic')
+const location = document.querySelector('#location')
+const price = document.querySelector('#price')
+const set = document.querySelector('#set')
+const level = document.querySelector('#level')
+const content = document.querySelector('#content')
+console.log(ticketName)
 let data = [
   {
     "id": 0,
@@ -37,6 +45,7 @@ let data = [
   }
 ];
 
+//畫面渲染
 function renderData(data) {
   let str = ''
   data.forEach(function (item, imdex) {
@@ -65,4 +74,24 @@ function renderData(data) {
   ticketSetRow.innerHTML = str
 }
 
+//初始化
 renderData(data)
+
+//搜尋套票
+searchSselect.addEventListener('change', function (e) {
+  const target = e.target
+  const newArr = data.filter(function (item) {
+    return item.area === target.value
+  })
+  renderData(newArr)
+  searchNum.textContent = `本次搜尋共 ${newArr.length}筆資料`
+})
+
+//新增套票
+addTicket.addEventListener('click', function (e) {
+  const target = e.target
+  let obj = {}
+  // console.log(ticketName.value)
+  obj.name = ticketName.value
+  console.log(obj)
+})
