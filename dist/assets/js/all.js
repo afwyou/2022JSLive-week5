@@ -4,13 +4,13 @@ var ticketSetRow = document.querySelector('.ticketSetRow');
 var searchSselect = document.querySelector('.search-select');
 var searchNum = document.querySelector('.searchNum');
 var addTicket = document.querySelector('.addTicket');
-var ticketName = document.querySelector('#name');
-var pic = document.querySelector('#pic');
-var location = document.querySelector('#location');
-var price = document.querySelector('#price');
-var set = document.querySelector('#set');
-var level = document.querySelector('#level');
-var content = document.querySelector('#content');
+var ticketName = document.querySelector('.name');
+var pic = document.querySelector('.pic'); // const location = document.querySelector('.location')
+// const price = document.querySelector('.price')
+// const set = document.querySelector('.set')
+// const level = document.querySelector('.level')
+// const content = document.querySelector('.content')
+
 console.log(ticketName);
 var data = [{
   "id": 0,
@@ -60,12 +60,11 @@ searchSselect.addEventListener('change', function (e) {
   renderData(newArr);
   searchNum.textContent = "\u672C\u6B21\u641C\u5C0B\u5171 ".concat(newArr.length, "\u7B46\u8CC7\u6599");
 }); //新增套票
-
-addTicket.addEventListener('click', function (e) {
-  var target = e.target;
-  var obj = {}; // console.log(ticketName.value)
-
-  obj.name = ticketName.value;
-  console.log(obj);
-});
+// addTicket.addEventListener('click', function (e) {
+//   const target = e.target
+//   let obj = {}
+//   // console.log(ticketName.value)
+//   obj.name = ticketName.value
+//   console.log(obj)
+// })
 //# sourceMappingURL=all.js.map

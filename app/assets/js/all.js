@@ -4,13 +4,13 @@ const ticketSetRow = document.querySelector('.ticketSetRow')
 const searchSselect = document.querySelector('.search-select')
 const searchNum = document.querySelector('.searchNum')
 const addTicket = document.querySelector('.addTicket')
-const ticketName = document.querySelector('#name')
-const pic = document.querySelector('#pic')
-const location = document.querySelector('#location')
-const price = document.querySelector('#price')
-const set = document.querySelector('#set')
-const level = document.querySelector('#level')
-const content = document.querySelector('#content')
+const ticketName = document.querySelector('.name')
+const pic = document.querySelector('.pic')
+// const location = document.querySelector('.location')
+// const price = document.querySelector('.price')
+// const set = document.querySelector('.set')
+// const level = document.querySelector('.level')
+// const content = document.querySelector('.content')
 console.log(ticketName)
 let data = [
   {
@@ -88,10 +88,10 @@ searchSselect.addEventListener('change', function (e) {
 })
 
 //新增套票
-addTicket.addEventListener('click', function (e) {
-  const target = e.target
-  let obj = {}
-  // console.log(ticketName.value)
-  obj.name = ticketName.value
-  console.log(obj)
-})
+// addTicket.addEventListener('click', function (e) {
+//   const target = e.target
+//   let obj = {}
+//   // console.log(ticketName.value)
+//   obj.name = ticketName.value
+//   console.log(obj)
+// })
