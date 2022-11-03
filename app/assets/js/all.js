@@ -6,12 +6,12 @@ const searchNum = document.querySelector('.searchNum')
 const addTicket = document.querySelector('.addTicket')
 const ticketName = document.querySelector('.name')
 const pic = document.querySelector('.pic')
-// const location = document.querySelector('.location')
-// const price = document.querySelector('.price')
-// const set = document.querySelector('.set')
-// const level = document.querySelector('.level')
-// const content = document.querySelector('.content')
-console.log(ticketName)
+const area = document.querySelector('.area')
+const price = document.querySelector('.price')
+const group = document.querySelector('.group')
+const rate = document.querySelector('.rate')
+const description = document.querySelector('.description')
+
 let data = [
   {
     "id": 0,
@@ -50,7 +50,7 @@ function renderData(data) {
   let str = ''
   data.forEach(function (item, imdex) {
     str += `
-   <div class="col-4">
+   <div class="col-4 mb-9">
         <div class="card shadow-sm position-relative h-100">
           <div class="card-area">${item.area}</div>
           <img src="${item.imgUrl}" alt="...">
@@ -87,11 +87,26 @@ searchSselect.addEventListener('change', function (e) {
   searchNum.textContent = `本次搜尋共 ${newArr.length}筆資料`
 })
 
-//新增套票
-// addTicket.addEventListener('click', function (e) {
-//   const target = e.target
-//   let obj = {}
-//   // console.log(ticketName.value)
-//   obj.name = ticketName.value
-//   console.log(obj)
-// })
+// 新增套票
+addTicket.addEventListener('click', function (e) {
+  const target = e.target
+  let obj = {}
+  if (ticketName.value === '' || pic.value === '' || area.value === '' || description.value === '' || group.value === '' || price.value === '' || rate.value === '') {
+    return alert('您有資料未填完整')
+
+  }
+  // console.log(ticketName.value)
+  obj.id = data.length + 1
+  obj.name = ticketName.value
+  obj.imgUrl = pic.value
+  obj.area = area.value
+  obj.description = description.value
+  obj.group = group.value
+  obj.price = price.value
+  obj.rate = rate.value
+  // console.log(obj)
+  data.push(obj)
+  renderData(data)
+  ticketName.value, pic.value, area.value, description.value, group.value, price.value, rate.value = ''
+  searchSselect.value = '地區搜尋'
+})

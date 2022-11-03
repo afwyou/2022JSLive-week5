@@ -5,13 +5,12 @@ var searchSselect = document.querySelector('.search-select');
 var searchNum = document.querySelector('.searchNum');
 var addTicket = document.querySelector('.addTicket');
 var ticketName = document.querySelector('.name');
-var pic = document.querySelector('.pic'); // const location = document.querySelector('.location')
-// const price = document.querySelector('.price')
-// const set = document.querySelector('.set')
-// const level = document.querySelector('.level')
-// const content = document.querySelector('.content')
-
-console.log(ticketName);
+var pic = document.querySelector('.pic');
+var area = document.querySelector('.area');
+var price = document.querySelector('.price');
+var group = document.querySelector('.group');
+var rate = document.querySelector('.rate');
+var description = document.querySelector('.description');
 var data = [{
   "id": 0,
   "name": "肥宅心碎賞櫻3日",
@@ -44,7 +43,7 @@ var data = [{
 function renderData(data) {
   var str = '';
   data.forEach(function (item, imdex) {
-    str += "\n   <div class=\"col-4\">\n        <div class=\"card shadow-sm position-relative h-100\">\n          <div class=\"card-area\">".concat(item.area, "</div>\n          <img src=\"").concat(item.imgUrl, "\" alt=\"...\">\n          <div class=\"card-body p-5 position-relative d-flex flex-column\">\n            <div class=\"rank\">8.6</div>\n            <h2 class=\"card-title text-primary fs-6 border-bottom mb-5 pb-1 border-primary border-3\">").concat(item.name, "</h2>\n            <p class=\"card-text text-secondary\">\n              ").concat(item.description, "\n            </p>\n            <footer class=\"d-flex justify-content-between text-primary align-items-center mt-auto\">\n              <div class=\"fs-4 d-flex\"> <span class=\"material-icons me-1\">\n                  error\n                </span>\u5269\u4E0B\u6700\u5F8C").concat(item.group, "\u7D44</div>\n              <div class=\"fs-8 d-flex align-items-center\"><span class=\"fs-4 me-1\">TWD</span>$").concat(item.price, "</div>\n            </footer>\n          </div>\n        </div>\n      </div>\n   ");
+    str += "\n   <div class=\"col-4 mb-9\">\n        <div class=\"card shadow-sm position-relative h-100\">\n          <div class=\"card-area\">".concat(item.area, "</div>\n          <img src=\"").concat(item.imgUrl, "\" alt=\"...\">\n          <div class=\"card-body p-5 position-relative d-flex flex-column\">\n            <div class=\"rank\">8.6</div>\n            <h2 class=\"card-title text-primary fs-6 border-bottom mb-5 pb-1 border-primary border-3\">").concat(item.name, "</h2>\n            <p class=\"card-text text-secondary\">\n              ").concat(item.description, "\n            </p>\n            <footer class=\"d-flex justify-content-between text-primary align-items-center mt-auto\">\n              <div class=\"fs-4 d-flex\"> <span class=\"material-icons me-1\">\n                  error\n                </span>\u5269\u4E0B\u6700\u5F8C").concat(item.group, "\u7D44</div>\n              <div class=\"fs-8 d-flex align-items-center\"><span class=\"fs-4 me-1\">TWD</span>$").concat(item.price, "</div>\n            </footer>\n          </div>\n        </div>\n      </div>\n   ");
   });
   ticketSetRow.innerHTML = str;
 } //初始化
@@ -59,12 +58,29 @@ searchSselect.addEventListener('change', function (e) {
   });
   renderData(newArr);
   searchNum.textContent = "\u672C\u6B21\u641C\u5C0B\u5171 ".concat(newArr.length, "\u7B46\u8CC7\u6599");
-}); //新增套票
-// addTicket.addEventListener('click', function (e) {
-//   const target = e.target
-//   let obj = {}
-//   // console.log(ticketName.value)
-//   obj.name = ticketName.value
-//   console.log(obj)
-// })
+}); // 新增套票
+
+addTicket.addEventListener('click', function (e) {
+  var target = e.target;
+  var obj = {};
+
+  if (ticketName.value === '' || pic.value === '' || area.value === '' || description.value === '' || group.value === '' || price.value === '' || rate.value === '') {
+    return alert('您有資料未填完整');
+  } // console.log(ticketName.value)
+
+
+  obj.id = data.length + 1;
+  obj.name = ticketName.value;
+  obj.imgUrl = pic.value;
+  obj.area = area.value;
+  obj.description = description.value;
+  obj.group = group.value;
+  obj.price = price.value;
+  obj.rate = rate.value; // console.log(obj)
+
+  data.push(obj);
+  renderData(data);
+  ticketName.value, pic.value, area.value, description.value, group.value, price.value, rate.value = '';
+  searchSselect.value = '地區搜尋';
+});
 //# sourceMappingURL=all.js.map
