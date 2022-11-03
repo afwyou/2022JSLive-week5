@@ -53,11 +53,19 @@ renderData(data); //搜尋套票
 
 searchSselect.addEventListener('change', function (e) {
   var target = e.target;
-  var newArr = data.filter(function (item) {
-    return item.area === target.value;
-  });
-  renderData(newArr);
-  searchNum.textContent = "\u672C\u6B21\u641C\u5C0B\u5171 ".concat(newArr.length, "\u7B46\u8CC7\u6599");
+  var newArr = [];
+
+  if (target.value === '地區搜尋') {
+    renderData(data);
+    searchNum.textContent = "\u672C\u6B21\u641C\u5C0B\u5171 ".concat(data.length, "\u7B46\u8CC7\u6599");
+  } else {
+    newArr = data.filter(function (item) {
+      return item.area === target.value;
+    }); // console.log(newArr)
+
+    renderData(newArr);
+    searchNum.textContent = "\u672C\u6B21\u641C\u5C0B\u5171 ".concat(newArr.length, "\u7B46\u8CC7\u6599");
+  }
 }); // 新增套票
 
 addTicket.addEventListener('click', function (e) {

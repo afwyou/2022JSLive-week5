@@ -80,11 +80,21 @@ renderData(data)
 //搜尋套票
 searchSselect.addEventListener('change', function (e) {
   const target = e.target
-  const newArr = data.filter(function (item) {
-    return item.area === target.value
-  })
-  renderData(newArr)
-  searchNum.textContent = `本次搜尋共 ${newArr.length}筆資料`
+  let newArr = []
+  if (target.value === '地區搜尋') {
+    renderData(data)
+    searchNum.textContent = `本次搜尋共 ${data.length}筆資料`
+  } else {
+    newArr = data.filter(function (item) {
+      return item.area === target.value
+    })
+    // console.log(newArr)
+    renderData(newArr)
+    searchNum.textContent = `本次搜尋共 ${newArr.length}筆資料`
+  }
+
+
+
 })
 
 // 新增套票
