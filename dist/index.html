@@ -33,37 +33,39 @@
           </span>
           新增旅遊套票
         </h1>
-        <ul class="ps-0">
-          <li class="mb-4">
-            <label for="name" class="me-7 text-primary fs-4">售票名稱</label>
-            <input type="text" id="name" class="name" placeholder="請填寫套票名稱">
-          </li>
-          <li class="mb-4">
-            <label for="pic" class=" me-7 text-primary fs-4">圖片網址</label>
-            <input type="text" id="pic" class="pic" placeholder="請填寫圖片網址">
-          </li>
-          <li class="mb-4">
-            <label for="location" class=" me-7 text-primary fs-4">景點地區</label>
-            <input type="text" id="location" class="area" placeholder="請選擇景點地區">
-          </li>
-          <li class="mb-4">
-            <label for="price" class=" me-7 text-primary fs-4">套票金額</label>
-            <input type="text" id="price" class="price" placeholder="請填寫套票金額">
-          </li>
-          <li class="mb-4">
-            <label for="group" class=" me-7 text-primary fs-4">套票組數</label>
-            <input type="text" id="group" class="group" placeholder="請填寫套票組數">
-          </li>
-          <li class="mb-4">
-            <label for="rate" class=" me-7 text-primary fs-4">套票星級</label>
-            <input type="text" id="rate" class="rate" placeholder="請填寫套票星級">
-          </li>
-          <li class="mb-8 d-flex align-items-start">
-            <label for="content" class=" me-7 text-primary fs-4">套票描述</label>
-            <textarea type="text" id="content" class="description" rows="5" placeholder="請填寫套票描述(限100個字)">
-            </textarea>
-          </li>
-        </ul>
+        <form action="" class="myForm">
+          <ul class="ps-0">
+            <li class="mb-4">
+              <label for="name" class="me-7 text-primary fs-4">售票名稱</label>
+              <input type="text" id="name" class="name" placeholder="請填寫套票名稱">
+            </li>
+            <li class="mb-4">
+              <label for="pic" class=" me-7 text-primary fs-4">圖片網址</label>
+              <input type="text" id="pic" class="pic" placeholder="請填寫圖片網址">
+            </li>
+            <li class="mb-4">
+              <label for="location" class=" me-7 text-primary fs-4">景點地區</label>
+              <input type="text" id="location" class="area" placeholder="請選擇景點地區">
+            </li>
+            <li class="mb-4">
+              <label for="price" class=" me-7 text-primary fs-4">套票金額</label>
+              <input type="text" id="price" class="price" placeholder="請填寫套票金額">
+            </li>
+            <li class="mb-4">
+              <label for="group" class=" me-7 text-primary fs-4">套票組數</label>
+              <input type="text" id="group" class="group" placeholder="請填寫套票組數">
+            </li>
+            <li class="mb-4">
+              <label for="rate" class=" me-7 text-primary fs-4">套票星級</label>
+              <input type="text" id="rate" class="rate" placeholder="請填寫套票星級">
+            </li>
+            <li class="mb-8 d-flex align-items-start">
+              <label for="content" class=" me-7 text-primary fs-4">套票描述</label>
+              <textarea type="text" id="content" class="description" rows="5" placeholder="請填寫套票描述(限100個字)">
+              </textarea>
+            </li>
+          </ul>
+        </form>
         <div class="addTicket btn btn-primary px-10 py-2 ms-auto d-block" style="width: 160px;">新增套票</div>
       </div>
     </div>
@@ -74,10 +76,10 @@
   <div class="container">
     <div class="search d-flex mb-13 text-secondary">
       <select class="search-select me-7 ms-24 text-secondary">
-        <option>地區搜尋</option>
-        <option>台北</option>
-        <option>台中</option>
-        <option>高雄</option>
+        <option value="地區搜尋">地區搜尋</option>
+        <option value="台北">台北</option>
+        <option value="台中">台中</option>
+        <option value="高雄">高雄</option>
       </select>
       <p class="searchNum" style="line-height: 38px;"></p>
     </div>

@@ -11,6 +11,8 @@ const price = document.querySelector('.price')
 const group = document.querySelector('.group')
 const rate = document.querySelector('.rate')
 const description = document.querySelector('.description')
+const myForm = document.querySelector('.myForm')
+
 
 let data = [
   {
@@ -117,6 +119,7 @@ addTicket.addEventListener('click', function (e) {
   // console.log(obj)
   data.push(obj)
   renderData(data)
-  ticketName.value, pic.value, area.value, description.value, group.value, price.value, rate.value = ''
+  // ticketName.value, pic.value, area.value, description.value, group.value, price.value, rate.value = ''
+  myForm.reset()
   searchSselect.value = '地區搜尋'
 })

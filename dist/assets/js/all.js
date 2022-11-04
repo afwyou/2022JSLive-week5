@@ -11,6 +11,7 @@ var price = document.querySelector('.price');
 var group = document.querySelector('.group');
 var rate = document.querySelector('.rate');
 var description = document.querySelector('.description');
+var myForm = document.querySelector('.myForm');
 var data = [{
   "id": 0,
   "name": "肥宅心碎賞櫻3日",
@@ -87,8 +88,9 @@ addTicket.addEventListener('click', function (e) {
   obj.rate = rate.value; // console.log(obj)
 
   data.push(obj);
-  renderData(data);
-  ticketName.value, pic.value, area.value, description.value, group.value, price.value, rate.value = '';
+  renderData(data); // ticketName.value, pic.value, area.value, description.value, group.value, price.value, rate.value = ''
+
+  myForm.reset();
   searchSselect.value = '地區搜尋';
 });
 //# sourceMappingURL=all.js.map
