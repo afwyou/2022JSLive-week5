@@ -1,5 +1,3 @@
-
-
 const ticketSetRow = document.querySelector('.ticketSetRow')
 const searchSselect = document.querySelector('.search-select')
 const searchNum = document.querySelector('.searchNum')
@@ -13,17 +11,19 @@ const rate = document.querySelector('.rate')
 const description = document.querySelector('.description')
 const myForm = document.querySelector('.myForm')
 
-let data = []
+let data = {}
+
 axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json')
   .then(function (response) {
     data = response.data
     console.log(data)
+    renderData(data.data)
   })
 
 //畫面渲染
-function renderData(datas) {
+function renderData(data) {
   let str = ''
-  datas.forEach(function (item, index) {
+  data.forEach(function (item, index) {
     str += `
    <div class="col-4 mb-9">
         <div class="card shadow-sm position-relative h-100">
@@ -47,30 +47,27 @@ function renderData(datas) {
    `
   })
   ticketSetRow.innerHTML = str
+  searchNum.textContent = `本次搜尋共 ${data.length}筆資料`
 }
 
-//初始化
-renderData(data),
-
-  //搜尋套票
-  searchSselect.addEventListener('change', function (e) {
-    const target = e.target
-    let newArr = []
-    if (target.value === '地區搜尋') {
-      renderData(data)
-      searchNum.textContent = `本次搜尋共 ${data.length}筆資料`
-    } else {
-      newArr = data.filter(function (item) {
-        return item.area === target.value
-      })
-      // console.log(newArr)
-      renderData(newArr)
-      searchNum.textContent = `本次搜尋共 ${newArr.length}筆資料`
-    }
+//搜尋套票
+searchSselect.addEventListener('change', function (e) {
+  const target = e.target
+  let newArr = []
+  if (target.value === '地區搜尋') {
+    renderData(data.data)
+    searchNum.textContent = `本次搜尋共 ${data.data.length}筆資料`
+  } else {
+    newArr = data.data.filter(function (item) {
+      return item.area === target.value
+    })
+    // console.log(newArr)
+    renderData(newArr)
+  }
 
 
 
-  })
+})
 
 // 新增套票
 addTicket.addEventListener('click', function (e) {
@@ -90,8 +87,8 @@ addTicket.addEventListener('click', function (e) {
   obj.price = price.value
   obj.rate = rate.value
   // console.log(obj)
-  data.push(obj)
-  renderData(data)
+  data.data.push(obj)
+  renderData(data.data)
   // ticketName.value, pic.value, area.value, description.value, group.value, price.value, rate.value = ''
   myForm.reset()
   searchSselect.value = '地區搜尋'
