@@ -28,17 +28,17 @@ axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelAp
       graphicObj[item.area] += 1;
     }
   });
-  console.log(graphicObj);
+  console.log('graphicObj', graphicObj);
   var newData = [];
   var area = Object.keys(graphicObj);
-  console.log(area);
+  console.log('area', area);
   area.forEach(function (item) {
     var arr = [];
     arr.push(item);
-    arr.push(graphicObj[area]);
-    console.log(arr);
+    arr.push(graphicObj[item]);
+    console.log('arr', arr);
     newData.push(arr);
-    console.log(newData);
+    console.log('newData', newData);
   });
 }); //畫面渲染
 
@@ -91,11 +91,12 @@ addTicket.addEventListener('click', function (e) {
 
   myForm.reset();
   searchSselect.value = '地區搜尋';
-});
+}); //插入圖表
+
 var chart = c3.generate({
   bindto: '#chart',
   data: {
-    columns: [['data1', 30], ['data2', 50]],
+    columns: newData,
     type: 'donut'
   },
   donut: {

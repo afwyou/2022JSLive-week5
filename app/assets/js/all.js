@@ -31,18 +31,18 @@ axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelAp
         graphicObj[item.area] += 1
       }
     })
-    console.log(graphicObj)
+    console.log('graphicObj', graphicObj)
 
     let newData = []
     let area = Object.keys(graphicObj)
-    console.log(area)
+    console.log('area', area)
     area.forEach(function (item) {
       let arr = []
       arr.push(item)
-      arr.push(graphicObj[area])
-      console.log(arr)
+      arr.push(graphicObj[item])
+      console.log('arr', arr)
       newData.push(arr)
-      console.log(newData)
+      console.log('newData', newData)
     })
 
 
@@ -125,14 +125,11 @@ addTicket.addEventListener('click', function (e) {
 
 
 
-
+//插入圖表
 var chart = c3.generate({
   bindto: '#chart',
   data: {
-    columns: [
-      ['data1', 30],
-      ['data2', 50]
-    ],
+    columns: newData,
     type: 'donut',
   },
   donut: {
