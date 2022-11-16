@@ -15,9 +15,38 @@ let data = {}
 
 axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json')
   .then(function (response) {
-    data = response.data
+    data = response.data.data
     console.log(data)
-    renderData(data.data)
+    renderData(data)
+
+
+    //圖表製作
+    //先做一個篩選資料的物件
+    //沒辦法直接做成陣列，因為陣列會在forEach覆蓋前一筆資料
+    let graphicObj = {}
+    data.forEach(function (item) {
+      if (graphicObj[item.area] == undefined) {
+        graphicObj[item.area] = 1
+      } else {
+        graphicObj[item.area] += 1
+      }
+    })
+    console.log(graphicObj)
+
+    let newData = []
+    let area = Object.keys(graphicObj)
+    console.log(area)
+    area.forEach(function (item) {
+      let arr = []
+      arr.push(item)
+      arr.push(graphicObj[area])
+      console.log(arr)
+      newData.push(arr)
+      console.log(newData)
+    })
+
+
+
   })
 
 //畫面渲染
@@ -92,6 +121,10 @@ addTicket.addEventListener('click', function (e) {
   myForm.reset()
   searchSselect.value = '地區搜尋'
 })
+
+
+
+
 
 var chart = c3.generate({
   bindto: '#chart',
