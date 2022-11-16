@@ -16,30 +16,8 @@ var data = {};
 axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json').then(function (response) {
   data = response.data.data;
   console.log(data);
-  renderData(data); //圖表製作
-  //先做一個篩選資料的物件
-  //沒辦法直接做成陣列，因為陣列會在forEach覆蓋前一筆資料
-
-  var graphicObj = {};
-  data.forEach(function (item) {
-    if (graphicObj[item.area] == undefined) {
-      graphicObj[item.area] = 1;
-    } else {
-      graphicObj[item.area] += 1;
-    }
-  });
-  console.log('graphicObj', graphicObj);
-  var newData = [];
-  var area = Object.keys(graphicObj);
-  console.log('area', area);
-  area.forEach(function (item) {
-    var arr = [];
-    arr.push(item);
-    arr.push(graphicObj[item]);
-    console.log('arr', arr);
-    newData.push(arr);
-    console.log('newData', newData);
-  });
+  renderData(data);
+  renderGraphic(data);
 }); //畫面渲染
 
 function renderData(data) {
@@ -57,10 +35,10 @@ searchSselect.addEventListener('change', function (e) {
   var newArr = [];
 
   if (target.value === '地區搜尋') {
-    renderData(data.data);
-    searchNum.textContent = "\u672C\u6B21\u641C\u5C0B\u5171 ".concat(data.data.length, "\u7B46\u8CC7\u6599");
+    renderData(data);
+    searchNum.textContent = "\u672C\u6B21\u641C\u5C0B\u5171 ".concat(data.length, "\u7B46\u8CC7\u6599");
   } else {
-    newArr = data.data.filter(function (item) {
+    newArr = data.filter(function (item) {
       return item.area === target.value;
     }); // console.log(newArr)
 
@@ -69,13 +47,11 @@ searchSselect.addEventListener('change', function (e) {
 }); // 新增套票
 
 addTicket.addEventListener('click', function (e) {
-  var target = e.target;
   var obj = {};
 
   if (ticketName.value === '' || pic.value === '' || area.value === '' || description.value === '' || group.value === '' || price.value === '' || rate.value === '') {
     return alert('您有資料未填完整');
-  } // console.log(ticketName.value)
-
+  }
 
   obj.id = data.length + 1;
   obj.name = ticketName.value;
@@ -84,23 +60,42 @@ addTicket.addEventListener('click', function (e) {
   obj.description = description.value;
   obj.group = group.value;
   obj.price = price.value;
-  obj.rate = rate.value; // console.log(obj)
-
-  data.data.push(obj);
-  renderData(data.data); // ticketName.value, pic.value, area.value, description.value, group.value, price.value, rate.value = ''
-
+  obj.rate = rate.value;
+  data.push(obj);
+  renderData(data);
   myForm.reset();
+  renderGraphic(data);
   searchSselect.value = '地區搜尋';
-}); //插入圖表
+}); //圖表資料製作
 
-var chart = c3.generate({
-  bindto: '#chart',
-  data: {
-    columns: newData,
-    type: 'donut'
-  },
-  donut: {
-    title: "套票地區比重"
-  }
-});
+function renderGraphic(data) {
+  //先做一個篩選資料的物件
+  //沒辦法直接做成陣列，因為陣列會在forEach覆蓋前一筆資料
+  var graphicObj = {};
+  var newData = [];
+  data.forEach(function (item) {
+    if (graphicObj[item.area] == undefined) {
+      graphicObj[item.area] = 1;
+    } else {
+      graphicObj[item.area] += 1;
+    }
+  });
+  var area = Object.keys(graphicObj);
+  area.forEach(function (item) {
+    var arr = [];
+    arr.push(item);
+    arr.push(graphicObj[item]);
+    newData.push(arr);
+  });
+  var chart = c3.generate({
+    bindto: '#chart',
+    data: {
+      columns: newData,
+      type: 'donut'
+    },
+    donut: {
+      title: "套票地區比重"
+    }
+  });
+}
 //# sourceMappingURL=all.js.map
