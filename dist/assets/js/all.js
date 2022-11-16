@@ -69,4 +69,14 @@ addTicket.addEventListener('click', function (e) {
   myForm.reset();
   searchSselect.value = '地區搜尋';
 });
+var chart = c3.generate({
+  bindto: '#chart',
+  data: {
+    columns: [['data1', 30], ['data2', 50]],
+    type: 'donut'
+  },
+  donut: {
+    title: "套票地區比重"
+  }
+});
 //# sourceMappingURL=all.js.map

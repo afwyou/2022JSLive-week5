@@ -20174,4 +20174,16 @@ select {
   border-color: #CED4DA;
 }
 
+#chart {
+  max-height: 180px !important;
+  max-width: 155px !important;
+  position: absolute !important;
+  right: 50px;
+  top: -25px;
+}
+
+.c3-chart-arcs-title {
+  font-size: 12px;
+}
+
 /*# sourceMappingURL=all.css.map */
