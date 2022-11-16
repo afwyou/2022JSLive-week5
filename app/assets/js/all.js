@@ -49,7 +49,6 @@ function renderData(data) {
   ticketSetRow.innerHTML = str
   searchNum.textContent = `本次搜尋共 ${data.length}筆資料`
 }
-
 //搜尋套票
 searchSselect.addEventListener('change', function (e) {
   const target = e.target
